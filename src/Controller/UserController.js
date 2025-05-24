@@ -1,5 +1,4 @@
 const UserModel = require("./model/UserModel")
-const bcrypt = require("bcrypt")
 
 
 const adduser = async (req,res) =>{
