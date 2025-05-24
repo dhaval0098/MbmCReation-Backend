@@ -16,9 +16,12 @@ app.use(WorkRoutes)
 const Queryroutes = require("./src/Controller/Routes/QueryRoutes")
 app.use(Queryroutes)
 
-mongoose.connect("mongodb://127.0.0.1:27017/node").then(()=>{   // to connect mongodb
-    console.log("mongodb is connected")
-})
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("✅ MongoDB is connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 
 
